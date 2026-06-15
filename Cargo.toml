@@ -1,0 +1,15 @@
+[package]
+name = "scip-shell"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.81"
+description = "Generate SCIP code-intelligence indexes for shell scripts"
+license = "MIT"
+
+[dependencies]
+brush-parser = "0.4"
+scip = "0.6"
+protobuf = "3.7"
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+walkdir = "2"
