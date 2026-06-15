@@ -5,6 +5,10 @@ edition = "2021"
 rust-version = "1.81"
 description = "Generate SCIP code-intelligence indexes for shell scripts"
 license = "MIT"
+repository = "https://github.com/jelmer/scip-shell"
+readme = "README.md"
+keywords = ["scip", "shell", "bash", "code-intelligence", "indexer"]
+categories = ["development-tools", "parsing"]
 
 [dependencies]
 brush-parser = "0.4"
