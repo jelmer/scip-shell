@@ -59,8 +59,18 @@ fn main() -> Result<()> {
     let mut documents = Vec::new();
     for file in &files {
         let relative = relative_path(&project_root, file);
-        let text =
-            std::fs::read_to_string(file).with_context(|| format!("reading {}", file.display()))?;
+        // A file can carry a shell shebang yet hold binary data after it (e.g.
+        // self-extracting scripts), so reading it as UTF-8 may fail. Skip such
+        // files rather than aborting the whole run.
+        // TODO: support non-UTF-8 files, e.g. scripts in legacy encodings, by
+        // reading bytes and decoding with a fallback rather than skipping them.
+        let text = match std::fs::read_to_string(file) {
+            Ok(text) => text,
+            Err(e) => {
+                eprintln!("skipping {}: {e}", file.display());
+                continue;
+            }
+        };
 
         match index_document(&pkg, &resolver, &relative, &text) {
             Ok(document) => documents.push(document),
