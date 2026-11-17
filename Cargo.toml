@@ -1,6 +1,6 @@
 [package]
 name = "scip-shell"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.88"
 description = "Generate SCIP code-intelligence indexes for shell scripts"
