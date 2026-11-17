@@ -2,7 +2,7 @@
 name = "scip-shell"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.81"
+rust-version = "1.88"
 description = "Generate SCIP code-intelligence indexes for shell scripts"
 license = "MIT"
 repository = "https://github.com/jelmer/scip-shell"
